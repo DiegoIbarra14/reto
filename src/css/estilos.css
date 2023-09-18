@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body{
+    width: 100%;
+    height: calc(100vh - 45px);
+    background-image: url("../img/burbuja.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 10px;
+    
+}
+
+*{
+    font-family: poppins;
+}
+.title-crud{
+  
+    font-weight: 700;
+    font-size: 3.4em;
+    color: #FFF;
+    text-shadow: 2px 2px 9px rgb(13, 35, 236);
+    
+}
+.btn-modal-active{
+    background: linear-gradient(to bottom,rgb(203, 59, 225), rgb(198, 63, 219) ,rgb(225, 52, 187));
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 1.07em;
+    border-color: transparent!important;
+}
+.btn-modal-active:hover{
+    background: linear-gradient(to top,rgb(219, 89, 216), rgb(172, 71, 212) ,rgb(192, 9, 233))!important;
+}
+
+
+
+.btn-table-delete{
+    background: linear-gradient(to bottom,rgb(221, 62, 112), rgb(221, 13, 100) ,rgb(170, 52, 107));
+    border-color: transparent;
+
+}
+.btn-table-delete:hover{
+    background: linear-gradient(to bottom,rgb(39, 99, 183), rgb(29, 150, 230) ,rgb(89, 180, 220))!important;
+    border-color: transparent!important;
+}
+
+.btn-table-update{
+    background: linear-gradient(to bottom,rgb(39, 99, 183), rgb(29, 150, 230) ,rgb(89, 180, 220));
+    border-color: transparent;
+
+}
+.btn-table-update:hover{
+    background: linear-gradient(to top,rgb(221, 62, 112), rgb(221, 13, 100) ,rgb(170, 52, 107))!important;
+    border-color: transparent!important;
+}
+
+.content{
+    max-width: 100vw;
+    overflow-x: scroll;
+}
+.p-column-filter-row .p-column-filter-element{
+    min-width: 200px;
+}

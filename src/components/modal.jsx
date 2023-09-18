@@ -3,6 +3,8 @@ import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { useState } from "react";  
 import { InputText } from 'primereact/inputtext';
+import { Dropdown } from 'primereact/dropdown';
+
 
 function Modal({createData,dataEdit,SetDataEdit,updateData,mostrarModal,setMostrarModal}){
     const valoresiniciales={
@@ -54,10 +56,17 @@ function Modal({createData,dataEdit,SetDataEdit,updateData,mostrarModal,setMostr
         setForm({
             ...form,[e.target.name]:e.target.value, 
         })
+        console.log(form.sexo)
+        
     }
+
+    const options = [
+        { label: 'Masculino', value: 'Masculino' },
+        { label: 'Femenino', value: 'Femenino' },
+      ];
     return(
         <div>
-            <Button  severity="info"label="Añadir" icon={"bi bi-person-plus-fill"} onClick={() => {setMostrarModal(true);reset()}} />
+            <Button className="btn-modal-active" label="Añadir" icon={"bi bi-person-plus-fill"} onClick={() => {setMostrarModal(true);reset()}} />
             <Dialog visible={mostrarModal} header={"Registro"}  style={{ width: '25vw' }} onHide={() => setMostrarModal(false)}>
                 <form onSubmit={submit}style={{ width: '100%' }} className="flex flex-column  gap-5 mt-4" >
                     <span className="p-float-label">
@@ -71,10 +80,8 @@ function Modal({createData,dataEdit,SetDataEdit,updateData,mostrarModal,setMostr
                     </span>
 
 
-                    <span className="p-float-label">
-                        <InputText style={{ width: "100%" }} id="sexo" name="sexo" value={form.sexo} onChange={change}/>
-                        <label htmlFor="sexo">Sexo</label>
-                    </span>
+                    <Dropdown name="sexo" id="dropdown" value={form.sexo} onChange={change} options={options} 
+                        placeholder="Selecciona una opción" className="w-100" />
 
 
                     <span className="p-float-label">
@@ -105,7 +112,6 @@ function Modal({createData,dataEdit,SetDataEdit,updateData,mostrarModal,setMostr
                     <Button type="submit" label="Enviar" severity="primary" />
                 </form>
             </Dialog>
-
         </div>)
 }
 export default Modal

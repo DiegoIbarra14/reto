@@ -33,11 +33,13 @@ function Table({SetDataEdit,contacts,setMostrarModal,deleteData}){
         rows={5}
         emptyMessage="No se Encontraron Contactos"
         globalFilterFields={['name', 'country.name', 'representative.name', 'status']}
+        id="table"
+        responsive
         >
-            <Column field="nombre" header="Name" showFilterMenu={false} filter filterPlaceholder="Search by name" style={{ minWidth: '12rem' }} />
+            <Column field="nombre" header="Name" showFilterMenu={false} filter filterPlaceholder="Busqueda por nombre" style={{ minWidth: '12rem' }} />
             <Column field="apellidos" header="Pais" />
             <Column field="sexo" header="Sexo" />
-            <Column field="distrito" header="Distrito" showFilterMenu={false} filter filterPlaceholder="Filtrar por tamaño"   />
+            <Column field="distrito" header="Distrito" showFilterMenu={false} filter filterPlaceholder="Filtrar por Distrito"   />
             <Column field="telefono" header="Telefono" />
             <Column field="direccion" header="Direccion" />
             <Column field="correo" header="Correo" />
@@ -47,8 +49,8 @@ function Table({SetDataEdit,contacts,setMostrarModal,deleteData}){
                 body={(rowData) => (
                     // Contenido personalizado de la nueva columna
                     <div className="flex gap-2">
-                        <Button className="flex gap-2" severity="danger"  label="Borrar" onClick={()=>{deleteData(rowData.id)}}><i className="bi bi-trash"></i></Button>
-                        <Button className="flex gap-2" Heartseverity="primary" label="Editar" onClick={()=>{SetDataEdit(rowData);setMostrarModal(true);console.log(rowData.fecha_nacimiento)}}><i className="bi bi-pencil"></i></Button>
+                        <Button className="flex gap-2 btn-table-delete" label="Borrar" onClick={()=>{deleteData(rowData.id)}}><i className="bi bi-trash"></i></Button>
+                        <Button className="flex gap-2 btn-table-update" label="Editar" onClick={()=>{SetDataEdit(rowData);setMostrarModal(true);console.log(rowData.fecha_nacimiento)}}><i className="bi bi-pencil"></i></Button>
                     </div>
                     
                 )}

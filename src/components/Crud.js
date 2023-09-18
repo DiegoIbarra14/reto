@@ -9,9 +9,7 @@ import { Toast } from 'primereact/toast';
 function Crud(){
   const [mostrarModal, setMostrarModal] = useState(false);
   const toast=useRef(null)
-  const [tareaeliminada,setTareaEliminada]=useState(null)
-
-
+ 
     const showToast=(severity, summary, detail)=>{
         toast.current.show({ severity, summary, detail, life: 3000 });
     }
@@ -46,7 +44,6 @@ function Crud(){
         }else{
             if(data.telefono.toString().length ===9){
                 insert(data)
-                setTareaEliminada(1)
                 showToast('success', 'Operacion Correcta', 'Datos insertados correctamente')
                 return true
             }else{
@@ -108,15 +105,18 @@ function Crud(){
       borrar(id)
     }
     return (
-      <div className='m-4 flex' >
-        <div className='w-100 flex gap-3 flex-column'>
-          <h1 className='text-center'>Bienvenido a la Sección de Contactos</h1>
+      
+        <div className=' content w-100 flex gap-3 flex-column'>
+          <h1 className='text-center title-crud'>Bienvenido a la Sección de Contactos</h1>
           <Modal mostrarModal={mostrarModal} setMostrarModal={setMostrarModal} createData={createData} dataEdit={dataEdit} SetDataEdit={SetDataEdit} updateData={updateData} mensaje="Insertar" icon="pi pi-external-link" />
-          <Table setMostrarModal={setMostrarModal} contacts={contacts} deleteData={deleteData} SetDataEdit={SetDataEdit} />
+          <div className='content-table'>
+            <Table setMostrarModal={setMostrarModal} contacts={contacts} deleteData={deleteData} SetDataEdit={SetDataEdit} />
+          </div>
+          
           <Toast ref={toast}></Toast>
         </div>
         
-      </div>
+      
     );
     }
 

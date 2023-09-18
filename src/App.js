@@ -10,8 +10,7 @@ import Table from './components/table';
 import { Button } from 'primereact/button'; 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-
-
+import '../src/css/estilos.css'
 
 // const imprimir=()=>{
   
